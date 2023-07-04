@@ -1,0 +1,77 @@
+<div>
+  <h3>Reactive Dynamic JSON forms</h3>
+</div>
+<form [formGroup]="dynamicForm">
+  <div *ngFor="let formField of formFields">
+    <div *ngIf="formField.fieldType == 'text'">
+      <label for="{{ formField.fieldName }}"> {{ formField.label }}</label>
+      <input
+        type="{{ formField.fieldType }}"
+        name="{{ formField.fieldName }}"
+        id="{{ formField.fieldName }}"
+        value="{{ formField.value }}"
+        formControlName="{{ formField.fieldName }}"
+      />
+    </div>
+    <div *ngIf="formField.fieldType == 'email'">
+      <label for="{{ formField.fieldName }}"> {{ formField.label }}</label>
+      <input
+        type="{{ formField.fieldType }}"
+        name="{{ formField.fieldName }}"
+        id="{{ formField.fieldName }}"
+        value="{{ formField.value }}"
+        formControlName="{{ formField.fieldName }}"
+      />
+    </div>
+    <div *ngIf="formField.fieldType == 'date'">
+      <label for="{{ formField.fieldName }}"> {{ formField.label }}</label>
+      <input
+        type="{{ formField.fieldType }}"
+        name="{{ formField.fieldName }}"
+        id="{{ formField.fieldName }}"
+        value="{{ formField.value }}"
+        formControlName="{{ formField.fieldName }}"
+      />
+    </div>
+    <div *ngIf="formField.fieldType == 'checkbox'">
+      <label for="{{ formField.fieldName }}"> {{ formField.label }}</label>
+      <input
+        type="checkbox"
+        name="{{ formField.fieldName }}"
+        id="{{ formField.fieldName }}"
+        (click)="ChangeCheckBox($event)"
+        value="formField.value"
+        formControlName="{{ formField.fieldName }}"
+      />
+    </div>
+    <!-- <div *ngIf="formField.fieldType=='radio'">
+
+          <label *ngFor="let opt of formField.options">
+              {{opt.key}}
+              <input type="radio"  name="{{opt.key }}" formControlName="{{opt.key }}"value="{{opt.value}}">
+            </label>
+          
+      </div> -->
+    <div
+      *ngIf="a[formField.fieldName].errors && isSubmitted"
+      class="text-danger"
+    >
+      <div *ngIf="a[formField.fieldName].errors?.['minlength']">
+        {{ formField.fieldName }} must be at least
+        {{ formField.validators.minLength }} characters.
+      </div>
+      <div *ngIf="a[formField.fieldName].errors?.['maxlength']">
+        {{ formField.fieldName }} must be at least
+        {{ formField.validators.maxLength }} characters.
+      </div>
+      <div *ngIf="a[formField.fieldName].errors?.['required']">
+        {{ formField.fieldName }} is required.
+      </div>
+      <div *ngIf="a[formField.fieldName].errors?.['pattern']">
+        Enter Valid {{ formField.fieldName }}
+      </div>
+    </div>
+    <br />
+  </div>
+  <button type="submit" (click)="onSubmit()">Submit</button>
+</form>

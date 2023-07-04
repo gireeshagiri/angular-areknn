@@ -1,0 +1,68 @@
+[
+  {
+    "fieldName": "Name",
+    "label": "First Name",
+    "fieldType": "text",
+    "value": "",
+    "validatorPresence": true,
+    "validators": {
+      "required": true,
+      "minLength": 3,
+      "maxLength": 50
+    }
+  },
+  {
+    "fieldName": "Email",
+    "label": "Email",
+    "fieldType": "email",
+    "value": "",
+    "validatorPresence": true,
+    "validators": {
+      "required": true,
+      "pattern": "[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"
+    }
+  },
+  {
+    "fieldName": "DOB",
+    "label": "Date Of Birth",
+    "fieldType": "date",
+    "value": "",
+    "validatorPresence": true,
+    "validators": {
+      "required": true
+    }
+  },
+  {
+    "fieldName": "CheckBox",
+    "label": "checkbox",
+    "fieldType": "checkbox",
+    "value": "false",
+    "validatorPresence": true,
+    "validators": {
+      "required": true
+    }
+  },
+  {
+    "fieldName": "gender",
+    "label": "Gender",
+    "fieldType": "radio",
+    "options": [
+      { "key": "Male", "value": "0" },
+      { "key": "Female", "value": "1" }
+    ],
+    "validatorPresence": false,
+    "validators": {
+      "required": false
+    }
+  },
+  {
+    "fieldName": "Message",
+    "label": "Message",
+    "fieldType": "text",
+    "value": "",
+    "validatorPresence": false,
+    "validators": {
+      "required": false
+    }
+  }
+]
